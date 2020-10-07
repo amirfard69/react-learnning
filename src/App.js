@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Post from './Components/post';
 import AddPost from './Components/create-post';
+import Header from './Components/header';
 
 export default class App extends Component {
     state = {
-        title: 'my-fisrt-page',
+        title: 'Posts',
         post: [
             {id: 1, name: 'post1', content: 'post content1'},
             {id: 2, name: 'post2', content: 'post content2'},
@@ -23,18 +26,15 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
-                <AddPost addItem={this.addItem}/>
-                <h1>{this.state.title}</h1>
-                {this.state.post.map(post =>
-                    (<div key={post.id}>
-                            <h3>The Posts: {post.name}</h3>
-                            <p>{post.content}</p>
-                        </div>
+            <BrowserRouter>
+                <Route path='/' component={Header}/>
+                <Route path='/add-post' render={(props) => <AddPost addItem={this.addItem} {...props}/>}/>
+                <Route path='/posts' render={(props) =>
+                    this.state.post.map(post => (
+                        <Post key={post.id} title={post.name} content={post.content} {...props}/>)
                     )
-                )}
-            </div>
+                }/>
+            </BrowserRouter>
         )
     }
-
 }

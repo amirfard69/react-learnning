@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default class createPost extends Component {
+export default class CreatePost extends Component {
     nameInput = null;
     contentInput = null;
 
@@ -20,6 +20,7 @@ export default class createPost extends Component {
     render() {
         return (
             <div>
+                <h1>Add Item</h1>
                 <input ref={el => this.nameInput = el}/>
                 <input ref={el => this.contentInput = el}/>
                 <button onClick={this.submitForm}>add</button>
