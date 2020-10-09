@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
+import {Link , NavLink ,withRouter} from 'react-router-dom';
 
-export default class Header extends Component {
+
+class Header extends Component {
     render() {
         return (
             <div>
                 <ul>
-                    <li><Link to='/add-post'>Add Post</Link></li>
-                    <li><Link to='/posts'>Posts</Link></li>
+                    <li><NavLink to='/add-post'>Add Post</NavLink></li>
+                    <li><NavLink to='/posts'>Posts</NavLink></li>
                 </ul>
             </div>
         )
     }
 }
+
+export default withRouter(Header);

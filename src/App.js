@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Post from './Components/post';
 import AddPost from './Components/create-post';
 import Header from './Components/header';
 
-export default class App extends Component {
+class App extends Component {
     state = {
         title: 'Posts',
         post: [
@@ -28,13 +28,21 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <Route path='/' component={Header}/>
-                <Route path='/add-post' render={(props) => <AddPost addItem={this.addItem} {...props}/>}/>
-                <Route path='/posts' render={(props) =>
-                    this.state.post.map(post => (
-                        <Post key={post.id} title={post.name} content={post.content} {...props}/>)
-                    )
-                }/>
+                <Switch>
+                    <Route path='/add-post' render={(props) => <AddPost addItem={this.addItem} {...props}/>}/>
+                    <Route path='/posts' exact render={(props) =>
+                        this.state.post.map(post => (
+                            <Post key={post.id} title={post.name} content={post.content} id={post.id} {...props}/>)
+                        )
+                    }/>
+                </Switch>
+                <Switch>
+                    <Route path='/posts/amir' render={(props) => <h1>amirfard</h1>}/>
+                    <Route path='/posts/:id' render={(props) => <h1>{props.match.params.id}</h1>}/>
+                </Switch>
             </BrowserRouter>
         )
     }
 }
+
+export default App;
