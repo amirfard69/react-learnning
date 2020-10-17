@@ -10,7 +10,7 @@ class Post extends Component {
                         {this.props.title}
                     </Link>
                 </h3>
-                <p>{this.props.content}</p>
+                <p>{this.props.body}</p>
             </div>
         )
     }
