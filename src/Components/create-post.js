@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
 export default class CreatePost extends Component {
@@ -20,11 +21,14 @@ export default class CreatePost extends Component {
 
     render() {
         console.log(this.props);
+        const checked = true;
+        const handleChange = true;
         return (
             <div>
                 <Button variant="contained" color="primary">
                     Hello World
                 </Button>
+                <Checkbox checked={checked} onChange={handleChange} inputProps={{ 'aria-label': 'primary checkbox' }}/>
                 <h1>Add Item</h1>
                 <input ref={el => this.nameInput = el}/>
                 <input ref={el => this.contentInput = el}/>
