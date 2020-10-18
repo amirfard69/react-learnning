@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App3 from './App';
-import './Redux/Redux'
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App3 />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
