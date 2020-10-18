@@ -1,7 +1,7 @@
 import * as Action from './redux-test-actions';
 
 const init_state = {
-    name: 'amir'
+    name: 'ehsan'
 };
 const reducer = (state = init_state, action) => {
     if (action.type === Action.textActionTitle) {

@@ -17,9 +17,8 @@ store.subscribe(() => {
 });
 
 store.dispatch(Action.testAction());
-store.dispatch(Action.testAction2());
-store.dispatch(Action.testAction3('javad'));
-
 store.dispatch(Action2.testActionAA());
+store.dispatch(Action.testAction2());
 store.dispatch(Action2.testAction2AA());
+store.dispatch(Action.testAction3('javad'));
 store.dispatch(Action2.testAction3AA('hosseinzade'));
