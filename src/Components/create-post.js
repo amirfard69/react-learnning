@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import Button from '@material-ui/core/Button';
 
 export default class CreatePost extends Component {
     nameInput = null;
@@ -21,6 +22,9 @@ export default class CreatePost extends Component {
         console.log(this.props);
         return (
             <div>
+                <Button variant="contained" color="primary">
+                    Hello World
+                </Button>
                 <h1>Add Item</h1>
                 <input ref={el => this.nameInput = el}/>
                 <input ref={el => this.contentInput = el}/>
