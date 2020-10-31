@@ -2,18 +2,18 @@ const initStore = {count: 1};
 
 const Add = 'ADD';
 const Minus = 'MINUS';
-const AddFunc = () => ({type: Add});
-const MinusFunc = () => ({type: Minus});
+const AddFunc = (val) => ({type: Add, val: val});
+const MinusFunc = (val) => ({type: Minus, val: val});
 const reducer = (state = initStore, action) => {
     switch (action.type) {
         case Add:
             return ({
-                ...state, count: state.count + 1
+                ...state, count: state.count + action.val
             });
             break;
         case Minus:
             return ({
-                ...state, count: state.count - 1
+                ...state, count: state.count - action.val
             });
             break;
     }
